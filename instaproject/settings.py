@@ -25,13 +25,14 @@ SECRET_KEY = 'g6y5(dm-x24qkr1-0x4aox!_f2j5r30^nnsxjz4cq4%()@b1xm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'bootstrap3',
+    'crispy_forms',
     'django.contrib.admin',
     'instaapp.apps.InstaappConfig',
     'django.contrib.auth',
@@ -124,5 +125,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
