@@ -1,4 +1,8 @@
 {% load static %}
+{% load bootstrap3 %}
+{% block styles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+{% endblock %}
 <div class="col-sm-6 col-md-6">
     {% if user.is_authenticated %}
     <ul>
@@ -26,6 +30,7 @@
 
     {% endif %}
   </div>
+  <br>
 {% block content %}
 
 {% endblock %}
