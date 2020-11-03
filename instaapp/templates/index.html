@@ -2,32 +2,52 @@
 {% load static %}
 
 {% block content %}
-
-
-<h2>WELCOME TO THE INSTAGRAM CLONE</h2>
+<style>
+  .status.each{
+    
+    width: 50%;
+    height: 30%;
+  }
+  .title{
+    text-align: center;
+  }
+  .create-post{
+    text-align: center;
+  }
+  
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<br>
+<div class="title">
+<h2>WELCOME TO THE INSTAGRAM CLONE</h2></div>
 <hr>
+<div class="create-post text-center">
+  <a href="{% url 'create'%}"><button class="btn btn-info">create post</button> </a>
+</div>
+<br><br>
 <div class="container">
     
     <div class="status text-center">
-     {% for image in images|slice:'5'%}
+     {% for image in images %}
         <div class="each">
              <a href="#"><img src="{{image.image.url}}" alt=""></a>
              <p>{{image.name|truncatechars:12}}</p>
          </div>
-     {% endfor %}
+    
          
     </div>
+    
    
-    <div class="posts">
-     {% for image in images %}
+    <!-- <div class="posts">
+     
      <div class="card ">
          <div class="card-header">
           
            <img id="card-img" src="{{image.image.url}}" alt=""> <b>{{image.name}}</b>
           
-             <a class="more" href="#modalCenter" data-toggle="modal"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+             <a class="more" href="#modalCenter" data-toggle="modal"><i class="glyphicon glyphicon-option-horizontal"></i></a> -->
              <!--modal-->
-             <div class=" modal fade" id="modalCenter"     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+             <!-- <div class=" modal fade" id="modalCenter"     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                  <div class="  modal-dialog modal-sm">
                    <div class="modal-content">
                      
@@ -43,7 +63,8 @@
                    </div>
                  </div>
                </div>
-         </div>
+         </div> -->
+         {% endfor %}
          <div class="card-body">
              <a id="posted" href="#"><img src="{{image.image.url}}" alt=""></a>
            
@@ -75,7 +96,7 @@
              {% for comment in image.comments.all|slice:'2' %}
                <p><b>{{comment.user.name}}</b> {{comment.comment}}</p>
            
-              {% endfor %}
+              
            </div>
            
          
